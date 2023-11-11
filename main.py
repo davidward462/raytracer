@@ -1,4 +1,9 @@
+def Raytrace(r):
+    return 0
+
 def main():
-    x = 0
+    pixelList = []
+    for pixel in pixelList:
+        color = Raytrace()
 
 main()

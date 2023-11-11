@@ -1,2 +1,2 @@
 # raytracer
-Raytracing program writting for upper-year graphics course
+Raytracing program written for upper-year graphics course

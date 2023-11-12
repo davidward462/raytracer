@@ -1,4 +1,5 @@
 import sys
+import sphere
 
 def Raytrace(r):
     return 0
@@ -14,7 +15,8 @@ def main():
     bottom = 0
     top = 0
     res = []
-    sphere = []
+    sphereList = []
+    lightList = []
     back = []
     ambient = []
     output = ""
@@ -50,6 +52,9 @@ def main():
     # process data
     print(data)
 
+    s = sphere.Sphere("mysphere")
+    print(s)
+    print(s.printShort())
 
     # do raytracing
     pixelList = []

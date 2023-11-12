@@ -4,6 +4,20 @@ def Raytrace(r):
     return 0
 
 def main():
+
+    # input file variables
+    # TODO: determine if any of these should be made into objects
+
+    near = 0
+    left = 0
+    right = 0
+    bottom = 0
+    top = 0
+    res = []
+    sphere = []
+    back = []
+    ambient = []
+    output = ""
     
     # get all system arguments, including source file name 
     fileArgs = sys.argv   

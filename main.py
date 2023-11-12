@@ -23,6 +23,9 @@ def main():
     back = []
     ambient = []
     output = ""
+
+    # constants
+    c = const.Constants()
     
     # get all system arguments, including source file name 
     fileArgs = sys.argv   
@@ -57,7 +60,7 @@ def main():
 
     # process data
     for line in dataLines:
-        x = re.search("NEAR", line)
+        x = re.search(c.near, line)
         if x != None:
             print(x.string)
 

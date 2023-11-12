@@ -1,6 +1,6 @@
 import sys
 import re
-import constants as const
+import constants 
 import helper
 import sphere
 import light
@@ -25,9 +25,6 @@ def main():
     ambient = []
     output = ""
 
-    # constants
-    c = const.Constants()
-    
     # get all system arguments, including source file name 
     fileArgs = sys.argv   
     #print(fileArgs)

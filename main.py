@@ -7,11 +7,11 @@ def main():
     
     # get all system arguments, including source file name 
     fileArgs = sys.argv   
-    print(fileArgs)
+    #print(fileArgs)
 
     # get source filename
     selfFilename = fileArgs[0] 
-    print(f" Filename: {selfFilename}")
+    #print(f" Filename: {selfFilename}")
 
     # exit program if number of arguments is wrong
     if len(fileArgs) < 2:

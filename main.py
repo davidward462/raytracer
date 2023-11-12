@@ -1,5 +1,6 @@
 import sys
 import sphere
+import light
 
 def Raytrace(r):
     return 0

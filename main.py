@@ -1,44 +1,35 @@
 import sys
 
-def GetArgs():
-
-    # get number of argumens 
-    argLen = len(sys.argv)
-
-    argList = []
-
-    # if arguments were added by user when running the program
-    if argLen > 1:
-        # starting at index 1
-        for arg in sys.argv[1:]:
-            argList.append(arg)
-    else:
-        print("No arguments passed.")
-        argList.append("")
-
-    return argList
-
-
 def Raytrace(r):
     return 0
 
 def main():
-
-    print(f"Filename: {sys.argv[0]}")
-    fileArgs = GetArgs()    
+    
+    # get all system arguments, including source file name 
+    fileArgs = sys.argv   
     print(fileArgs)
 
+    # get source filename
+    selfFilename = fileArgs[0] 
+    print(f" Filename: {selfFilename}")
+
+    # exit program if number of arguments is wrong
+    if len(fileArgs) < 2:
+        print(f" Usage: {selfFilename} <inputFile>")
+        sys.exit() 
+        
+
     # open file
-    filePath = fileArgs[0]
+    filePath = fileArgs[1]
     try:
         with open(filePath, 'r') as file:
             data = file.read()
             print(data)
     # catch errors
     except FileNotFoundError:
-        print(f"The file at '{filePath}' was not found.")
+        print(f" The file at '{filePath}' was not found.")
     except Exception as e:
-        print(f"An error occurred: {e}")
+        print(f" An error occurred: {e}")
 
 
     # do raytracing

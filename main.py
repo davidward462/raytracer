@@ -1,4 +1,5 @@
 import sys
+import re
 import sphere
 import light
 
@@ -49,13 +50,15 @@ def main():
     except Exception as e:
         print(f" An error occurred: {e}")
 
+    # split lines
+    dataLines = data.split('\n')
+    print(dataLines)
 
     # process data
-    print(data)
-
-    s = sphere.Sphere("mysphere 1 2 3 4 5 6 7 8 9 10 11 12 13 14")
-    parseResult = s.Parse()
-    print(s)
+    for line in dataLines:
+        x = re.search("NEAR", line)
+        if x != None:
+            print(x.string)
 
     # do raytracing
     pixelList = []

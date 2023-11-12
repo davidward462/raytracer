@@ -54,17 +54,23 @@ def main():
     except Exception as e:
         print(f" An error occurred: {e}")
 
-    # split lines
+    # split file on newline
     dataLines = data.split('\n')
     print(dataLines)
 
+    # store split lines
+    dataLineList = []
+
     # process data
     for line in dataLines:
-        x = re.search(c.near, line)
-        if x != None:
-            print(x.string)
+        # split on >= 1 spaces, or >= 1 tabs
+        splitLine = re.split(" +|\t+", line)
+        dataLineList.append(splitLine)
 
-    # do raytracing
+    print()
+    print(dataLineList)
+
+   # do raytracing
     pixelList = []
     for pixel in pixelList:
         color = Raytrace()

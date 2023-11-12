@@ -56,7 +56,6 @@ def main():
 
     # split file on newline
     dataLines = data.split('\n')
-    print(dataLines)
 
     # store split lines
     dataLineList = []

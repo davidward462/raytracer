@@ -53,9 +53,9 @@ def main():
     # process data
     print(data)
 
-    s = sphere.Sphere("mysphere")
+    s = sphere.Sphere("mysphere 1 2 3 4 5 6 7 8 9 10 11 12 13 14")
+    parseResult = s.Parse()
     print(s)
-    print(s.printShort())
 
     # do raytracing
     pixelList = []

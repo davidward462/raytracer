@@ -1,6 +1,7 @@
 import sys
 import re
 import constants as const
+import helper
 import sphere
 import light
 
@@ -67,7 +68,7 @@ def main():
         dataLineList.append(splitLine)
 
     print()
-    print(dataLineList)
+    helper.PrintList(dataLineList)
 
    # do raytracing
     pixelList = []

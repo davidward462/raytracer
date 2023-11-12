@@ -1,6 +1,7 @@
 class Sphere:
-    def __init__(self, name):
+    def __init__(self, name, attributeList):
         self.name = name
+        self.attributeList = attributeList
         self.posX = 0
         self.posY = 0
         self.posZ = 0
@@ -16,7 +17,10 @@ class Sphere:
         self.kr = 0
         self.n = 0
 
-    def printShort(self):
+    def Parse(self):
+        return 0
+
+    def PrintShort(self):
         return f"\nname: {self.name}\nx: {self.posX}\ny: {self.posY}\nz: {self.posZ}"
 
     def __str__(self):

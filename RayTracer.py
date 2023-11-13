@@ -116,4 +116,6 @@ def main():
     for pixel in pixelList:
         color = Raytrace()
 
+    file.close()
+
 main()

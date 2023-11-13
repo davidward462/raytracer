@@ -65,28 +65,49 @@ def main():
         firstElement = line[0]
         if len(line) > 1:
             match firstElement:
+
                 case constants.output:
                     print(firstElement)
+                    output = line[1]
+
                 case constants.left:
                     print(firstElement)
+                    left = line[1]
+
                 case constants.right:
                     print(firstElement)
+                    right = line[1]
+
                 case constants.bottom:
                     print(firstElement)
+                    bottom = line[1]
+
                 case constants.top:
                     print(firstElement)
+                    top = line[1]
+
                 case constants.near:
                     print(firstElement)
+                    near = [1]
+
                 case constants.ambient:
                     print(firstElement)
+                    ambient = line[1]
+
                 case constants.back:
                     print(firstElement)
+                    back = line[1]
+
                 case constants.res:
                     print(firstElement)
+                    res = line[1]
+
                 case constants.sphere:
                     print(firstElement)
+
                 case constants.light:
                     print(firstElement)
+
                 case _:
                     print(" Error, no match with {firstElement} found.")
 

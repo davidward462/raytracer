@@ -115,11 +115,18 @@ def main():
                     print(f" Error, no match with {firstElement} found.")
                     parseSuccess = False
 
+
+    # check parsing status, exit if failed.
     if parseSuccess:
         print(f" File at '{filePath}' parsed sucessfully.")
     else:
         print(f" Parsing of '{filePath}' failed.")
         sys.exit() 
+
+
+    # for testing
+    print(f" spheres: {len(sphereDataList)}")
+    print(f" lights: {len(lightDataList)}")
 
    # do raytracing
     print(" Begin raytracing...")

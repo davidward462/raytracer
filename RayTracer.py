@@ -61,9 +61,6 @@ def main():
         splitLine = re.split(" +|\t+", line)
         dataLineList.append(splitLine)
 
-    print()
-    helper.PrintList(dataLineList)
-
    # do raytracing
     pixelList = []
     for pixel in pixelList:

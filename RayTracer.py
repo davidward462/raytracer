@@ -66,29 +66,29 @@ def main():
         if len(line) > 1:
             match firstElement:
                 case constants.output:
-                    print()
+                    print(firstElement)
                 case constants.left:
-                    print()
+                    print(firstElement)
                 case constants.right:
-                    print()
+                    print(firstElement)
                 case constants.bottom:
-                    print()
+                    print(firstElement)
                 case constants.top:
-                    print()
+                    print(firstElement)
                 case constants.near:
-                    print()
+                    print(firstElement)
                 case constants.ambient:
-                    print()
+                    print(firstElement)
                 case constants.back:
-                    print()
+                    print(firstElement)
                 case constants.res:
-                    print()
+                    print(firstElement)
                 case constants.sphere:
-                    print()
+                    print(firstElement)
                 case constants.light:
-                    print()
+                    print(firstElement)
                 case _:
-                    print(f" Error, no match with {firstElement} found.")
+                    print(" Error, no match with {firstElement} found.")
 
    # do raytracing
     pixelList = []

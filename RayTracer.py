@@ -28,6 +28,8 @@ def main():
     sphereObjectList = []
     lightObjectList = []
 
+    parseSuccess = True
+
     # get all system arguments, including source file name 
     fileArgs = sys.argv   
 
@@ -110,9 +112,14 @@ def main():
                     lightDataList.append(line)
 
                 case _:
-                    print(" Error, no match with {firstElement} found.")
+                    print(f" Error, no match with {firstElement} found.")
+                    parseSuccess = False
 
-    print(f" File at '{filePath}' parsed sucessfully.")
+    if parseSuccess:
+        print(f" File at '{filePath}' parsed sucessfully.")
+    else:
+        print(f" Parsing of '{filePath}' failed.")
+        sys.exit() 
 
    # do raytracing
     print(" Begin raytracing...")

@@ -19,11 +19,14 @@ def main():
     bottom = 0
     top = 0
     res = []
-    sphereList = []
-    lightList = []
+    sphereDataList = []
+    lightDataList = []
     back = []
     ambient = []
     output = ""
+
+    sphereObjectList = []
+    lightObjectList = []
 
     # get all system arguments, including source file name 
     fileArgs = sys.argv   
@@ -109,16 +112,17 @@ def main():
 
                 case constants.sphere:
                     print(firstElement)
-                    sphereList.append(line)
+                    sphereDataList.append(line)
 
                 case constants.light:
                     print(firstElement)
-                    lightList.append(line)
+                    lightDataList.append(line)
 
                 case _:
                     print(" Error, no match with {firstElement} found.")
 
    # do raytracing
+    print(" Begin raytracing...")
     pixelList = []
     for pixel in pixelList:
         color = Raytrace()

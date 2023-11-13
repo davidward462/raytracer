@@ -92,15 +92,20 @@ def main():
 
                 case constants.ambient:
                     print(firstElement)
-                    ambient = line[1]
+                    ambient.append(line[0])
+                    ambient.append(line[1])
+                    ambient.append(line[2])
 
                 case constants.back:
                     print(firstElement)
-                    back = line[1]
+                    back.append(line[0])
+                    back.append(line[1])
+                    back.append(line[2])
 
                 case constants.res:
                     print(firstElement)
-                    res = line[1]
+                    res.append(line[1])
+                    res.append(line[2])
 
                 case constants.sphere:
                     print(firstElement)
@@ -115,7 +120,5 @@ def main():
     pixelList = []
     for pixel in pixelList:
         color = Raytrace()
-
-    file.close()
 
 main()

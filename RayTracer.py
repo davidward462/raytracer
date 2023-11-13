@@ -123,10 +123,24 @@ def main():
         print(f" Parsing of '{filePath}' failed.")
         sys.exit() 
 
+    sphereCount = len(sphereDataList)
+    lightCount = len(lightDataList)
 
     # for testing
-    print(f" spheres: {len(sphereDataList)}")
-    print(f" lights: {len(lightDataList)}")
+    print(f" spheres: {sphereCount}")
+    print(f" lights: {lightCount}")
+
+    # create and store sphere objects in list
+    for i in range(sphereCount):
+        s = sphere.Sphere(sphereDataList[i])
+        sphereObjectList.append(s)
+
+    for i in range(lightCount):
+        l = light.Light(lightDataList[i])
+        lightObjectList.append(l)
+
+    helper.PrintList(sphereObjectList)
+    helper.PrintList(lightObjectList)
 
    # do raytracing
     print(" Begin raytracing...")

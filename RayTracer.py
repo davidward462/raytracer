@@ -61,6 +61,35 @@ def main():
         splitLine = re.split(" +|\t+", line)
         dataLineList.append(splitLine)
 
+    for line in dataLineList:
+        firstElement = line[0]
+        if len(line) > 1:
+            match firstElement:
+                case constants.output:
+                    print()
+                case constants.left:
+                    print()
+                case constants.right:
+                    print()
+                case constants.bottom:
+                    print()
+                case constants.top:
+                    print()
+                case constants.near:
+                    print()
+                case constants.ambient:
+                    print()
+                case constants.back:
+                    print()
+                case constants.res:
+                    print()
+                case constants.sphere:
+                    print()
+                case constants.light:
+                    print()
+                case _:
+                    print(f" Error, no match with {firstElement} found.")
+
    # do raytracing
     pixelList = []
     for pixel in pixelList:

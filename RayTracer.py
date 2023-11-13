@@ -52,6 +52,8 @@ def main():
     except Exception as e:
         print(f" An error occurred: {e}")
 
+    print(" Processing file...")
+
     # split file on newline
     dataLines = data.split('\n')
 
@@ -70,62 +72,55 @@ def main():
             match firstElement:
 
                 case constants.output:
-                    print(firstElement)
                     output = line[1]
 
                 case constants.left:
-                    print(firstElement)
                     left = line[1]
 
                 case constants.right:
-                    print(firstElement)
                     right = line[1]
 
                 case constants.bottom:
-                    print(firstElement)
                     bottom = line[1]
 
                 case constants.top:
-                    print(firstElement)
                     top = line[1]
 
                 case constants.near:
-                    print(firstElement)
                     near = [1]
 
                 case constants.ambient:
-                    print(firstElement)
                     ambient.append(line[0])
                     ambient.append(line[1])
                     ambient.append(line[2])
 
                 case constants.back:
-                    print(firstElement)
                     back.append(line[0])
                     back.append(line[1])
                     back.append(line[2])
 
                 case constants.res:
-                    print(firstElement)
                     res.append(line[1])
                     res.append(line[2])
 
                 case constants.sphere:
-                    print(firstElement)
                     sphereDataList.append(line)
 
                 case constants.light:
-                    print(firstElement)
                     lightDataList.append(line)
 
                 case _:
                     print(" Error, no match with {firstElement} found.")
+
+    print(f" File at '{filePath}' parsed sucessfully.")
 
    # do raytracing
     print(" Begin raytracing...")
     pixelList = []
     for pixel in pixelList:
         color = Raytrace()
+
+    print(" Complete.")
 
     file.close()
 

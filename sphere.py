@@ -1,7 +1,6 @@
 class Sphere:
-    def __init__(self, attributeString):
-        self.attributeString = attributeString
-        self.attributeList = []
+    def __init__(self, attributeList):
+        self.attributeList = attributeList
     
         # attributes for calculations
         self.name = ""
@@ -23,7 +22,6 @@ class Sphere:
         self.attributeCount = 15
         
     def Parse(self):
-        self.attributeList = self.attributeString.split(' ')
         inputAttributeCount = len(self.attributeList)
 
         if (inputAttributeCount != self.attributeCount):

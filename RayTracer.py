@@ -71,6 +71,49 @@ def main():
     for line in dataLineList:
         firstElement = line[0]
         if len(line) > 1:
+            if(firstElement == constants.output):
+                output = line[1]
+
+            elif(firstElement == constants.left):
+                left = line[1]
+
+            elif(firstElement == constants.right):
+                right = line[1]
+
+            elif(firstElement == constants.bottom):
+                bottom = line[1]
+
+            elif(firstElement == constants.top):
+                top = line[1]
+
+            elif(firstElement == constants.near):
+                near = [1]
+
+            elif(firstElement == constants.ambient):
+                ambient.append(line[0])
+                ambient.append(line[1])
+                ambient.append(line[2])
+
+            elif(firstElement == constants.back):
+                back.append(line[0])
+                back.append(line[1])
+                back.append(line[2])
+
+            elif(firstElement == constants.res):
+                res.append(line[1])
+                res.append(line[2])
+
+            elif(firstElement == constants.sphere):
+                sphereDataList.append(line)
+
+            elif(firstElement == constants.light):
+                lightDataList.append(line)
+
+            else:
+                print(f" Error, no match with {firstElement} found.")
+                parseSuccess = False
+
+            """
             match firstElement:
 
                 case constants.output:
@@ -114,6 +157,7 @@ def main():
                 case _:
                     print(f" Error, no match with {firstElement} found.")
                     parseSuccess = False
+                """
 
 
     # check parsing status, exit if failed.

@@ -109,9 +109,11 @@ def main():
 
                 case constants.sphere:
                     print(firstElement)
+                    sphereList.append(line)
 
                 case constants.light:
                     print(firstElement)
+                    lightList.append(line)
 
                 case _:
                     print(" Error, no match with {firstElement} found.")

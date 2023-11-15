@@ -101,14 +101,14 @@ def main():
                 near = [1]
 
             elif(firstElement == constants.ambient):
-                ambient.append(line[0])
                 ambient.append(line[1])
                 ambient.append(line[2])
+                ambient.append(line[3])
 
             elif(firstElement == constants.back):
-                back.append(line[0])
                 back.append(line[1])
                 back.append(line[2])
+                back.append(line[3])
 
             elif(firstElement == constants.res):
                 res.append(line[1])
@@ -144,7 +144,10 @@ def main():
         l = light.Light(lightDataList[i])
         lightObjectList.append(l)
 
+    # output data collected from file
     if verboseOutput:
+        print(f" near: {near}\n left: {left}\n right: {right}\n bottom: {bottom}\n top: {top}\n res: {res}\n back: {back}\n ambient: {ambient}\n output: {output}")
+
         print(f" spheres: {sphereCount}")
         helper.PrintList(sphereObjectList)
         print(f" lights: {lightCount}")

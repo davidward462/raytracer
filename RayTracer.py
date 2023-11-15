@@ -113,53 +113,6 @@ def main():
                 print(f" Error, no match with {firstElement} found.")
                 parseSuccess = False
 
-            """
-            match firstElement:
-
-                case constants.output:
-                    output = line[1]
-
-                case constants.left:
-                    left = line[1]
-
-                case constants.right:
-                    right = line[1]
-
-                case constants.bottom:
-                    bottom = line[1]
-
-                case constants.top:
-                    top = line[1]
-
-                case constants.near:
-                    near = [1]
-
-                case constants.ambient:
-                    ambient.append(line[0])
-                    ambient.append(line[1])
-                    ambient.append(line[2])
-
-                case constants.back:
-                    back.append(line[0])
-                    back.append(line[1])
-                    back.append(line[2])
-
-                case constants.res:
-                    res.append(line[1])
-                    res.append(line[2])
-
-                case constants.sphere:
-                    sphereDataList.append(line)
-
-                case constants.light:
-                    lightDataList.append(line)
-
-                case _:
-                    print(f" Error, no match with {firstElement} found.")
-                    parseSuccess = False
-                """
-
-
     # check parsing status, exit if failed.
     if parseSuccess:
         print(f" File at '{filePath}' parsed sucessfully.")

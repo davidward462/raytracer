@@ -28,6 +28,7 @@ class Sphere:
             print(" Incorrect number of attributes in sphere input.")
         else:
             # correct number of attributes
+            print(" parsing...")
             self.name = self.attributeList[0] 
             self.posX = self.attributeList[1]
             self.posY = self.attributeList[2]

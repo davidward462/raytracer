@@ -24,26 +24,26 @@ class Sphere:
     def Parse(self):
         inputAttributeCount = len(self.attributeList)
 
-        if (inputAttributeCount != self.attributeCount):
-            print(" Incorrect number of attributes in sphere input.")
-        else:
-            # correct number of attributes
-            print(" parsing...")
-            self.name = self.attributeList[0] 
-            self.posX = self.attributeList[1]
-            self.posY = self.attributeList[2]
-            self.posZ = self.attributeList[3]
-            self.scaleX = self.attributeList[4]
-            self.scaleY = self.attributeList[5]
-            self.scaleZ = self.attributeList[6]
-            self.r = self.attributeList[7]
-            self.g = self.attributeList[8]
-            self.b = self.attributeList[9]
-            self.ka = self.attributeList[10]
-            self.kd = self.attributeList[11]
-            self.ks = self.attributeList[12]
-            self.kr = self.attributeList[13]
-            self.n = self.attributeList[14]
+        try:
+            # TODO: do correct casting of numbers
+            self.name = self.attributeList[1] 
+            self.posX = self.attributeList[2]
+            self.posY = self.attributeList[3]
+            self.posZ = self.attributeList[4]
+            self.scaleX = self.attributeList[5]
+            self.scaleY = self.attributeList[6]
+            self.scaleZ = self.attributeList[7]
+            self.r = self.attributeList[8]
+            self.g = self.attributeList[9]
+            self.b = self.attributeList[10]
+            self.ka = self.attributeList[11]
+            self.kd = self.attributeList[12]
+            self.ks = self.attributeList[13]
+            self.kr = self.attributeList[14]
+            self.n = self.attributeList[15]
+        except Exception as e:
+            print(f" An error occured: {e}")
+
         return 0
 
     def PrintShort(self):

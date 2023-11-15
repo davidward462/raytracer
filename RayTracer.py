@@ -142,6 +142,7 @@ def main():
     # create and store sphere objects in list
     for i in range(sphereCount):
         s = sphere.Sphere(sphereDataList[i])
+        s.Parse()
         sphereObjectList.append(s)
 
     for i in range(lightCount):

@@ -10,9 +10,21 @@ def Raytrace(r):
 
 def main():
 
-    # input file variables
-    # TODO: determine if any of these should be made into objects
+    # program variables
+    debug = True
+    parseSuccess = True
+    verboseOutput = False
 
+    # get all system arguments, including source file name 
+    fileArgs = sys.argv   
+
+    # get source filename
+    selfFilename = fileArgs[0] 
+
+    # number of arguments
+    numberOfArgs = len(fileArgs)
+
+    # graphical variables from input file
     near = 0
     left = 0
     right = 0
@@ -28,18 +40,16 @@ def main():
     sphereObjectList = []
     lightObjectList = []
 
-    parseSuccess = True
-
-    # get all system arguments, including source file name 
-    fileArgs = sys.argv   
-
-    # get source filename
-    selfFilename = fileArgs[0] 
-
     # exit program if number of arguments is wrong
-    if len(fileArgs) < 2:
+    if numberOfArgs < 2:
         print(f" Usage: {selfFilename} <inputFile>")
         sys.exit() 
+
+    # check for flags
+    if numberOfArgs == 3:
+        flag = fileArgs[2]
+        if flag == "-v":
+            verboseOutput = True
 
     # open file
     filePath = fileArgs[1]
@@ -54,7 +64,8 @@ def main():
     except Exception as e:
         print(f" An error occurred: {e}")
 
-    print(" Processing file...")
+    if debug:
+        print(" Processing file...")
 
     # split file on newline
     dataLines = data.split('\n')
@@ -114,18 +125,15 @@ def main():
                 parseSuccess = False
 
     # check parsing status, exit if failed.
-    if parseSuccess:
-        print(f" File at '{filePath}' parsed sucessfully.")
-    else:
-        print(f" Parsing of '{filePath}' failed.")
-        sys.exit() 
+    if debug:
+        if parseSuccess:
+            print(f" File at '{filePath}' parsed sucessfully.")
+        else:
+            print(f" Parsing of '{filePath}' failed.")
+            sys.exit() 
 
     sphereCount = len(sphereDataList)
     lightCount = len(lightDataList)
-
-    # for testing
-    print(f" spheres: {sphereCount}")
-    print(f" lights: {lightCount}")
 
     # create and store sphere objects in list
     for i in range(sphereCount):
@@ -136,16 +144,22 @@ def main():
         l = light.Light(lightDataList[i])
         lightObjectList.append(l)
 
-    helper.PrintList(sphereObjectList)
-    helper.PrintList(lightObjectList)
+    if verboseOutput:
+        print(f" spheres: {sphereCount}")
+        helper.PrintList(sphereObjectList)
+        print(f" lights: {lightCount}")
+        helper.PrintList(lightObjectList)
 
    # do raytracing
-    print(" Begin raytracing...")
+    if debug:
+        print(" Begin raytracing...")
+
     pixelList = []
     for pixel in pixelList:
         color = Raytrace()
 
-    print(" Complete.")
+    if debug:
+        print(" Complete.")
 
     file.close()
 

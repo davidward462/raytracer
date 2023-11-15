@@ -81,39 +81,39 @@ def main():
         dataLineList.append(splitLine)
 
     for line in dataLineList:
-        firstElement = line[0]
+        firstElement = line[0] # string identifier for data in line
         if len(line) > 1:
             if(firstElement == constants.output):
-                output = line[1]
+                output = line[1] # this is a string type
 
             elif(firstElement == constants.left):
-                left = line[1]
+                left = int(line[1])
 
             elif(firstElement == constants.right):
-                right = line[1]
+                right = int(line[1])
 
             elif(firstElement == constants.bottom):
-                bottom = line[1]
+                bottom = int(line[1])
 
             elif(firstElement == constants.top):
-                top = line[1]
+                top = int(line[1])
 
             elif(firstElement == constants.near):
-                near = line[1]
+                near = int(line[1])
 
             elif(firstElement == constants.ambient):
-                ambient.append(line[1])
-                ambient.append(line[2])
-                ambient.append(line[3])
+                ambient.append( float(line[1]) )
+                ambient.append( float(line[2]) )
+                ambient.append( float(line[3]) )
 
             elif(firstElement == constants.back):
-                back.append(line[1])
-                back.append(line[2])
-                back.append(line[3])
+                back.append( float(line[1]) )
+                back.append( float(line[2]) )
+                back.append( float(line[3]) )
 
             elif(firstElement == constants.res):
-                res.append(line[1])
-                res.append(line[2])
+                res.append( int(line[1]) )
+                res.append( int(line[2]) )
 
             elif(firstElement == constants.sphere):
                 sphereDataList.append(line)
@@ -133,6 +133,9 @@ def main():
             print(f" Parsing of '{filePath}' failed.")
             sys.exit() 
 
+    # handle sphere and light data
+    
+    # count of each
     sphereCount = len(sphereDataList)
     lightCount = len(lightDataList)
 

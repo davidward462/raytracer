@@ -14,6 +14,7 @@ def main():
     debug = True
     parseSuccess = True
     verboseOutput = False
+    divLength = 20
 
     # get all system arguments, including source file name 
     fileArgs = sys.argv   
@@ -98,7 +99,7 @@ def main():
                 top = line[1]
 
             elif(firstElement == constants.near):
-                near = [1]
+                near = line[1]
 
             elif(firstElement == constants.ambient):
                 ambient.append(line[1])
@@ -146,12 +147,14 @@ def main():
 
     # output data collected from file
     if verboseOutput:
+        helper.PrintDivider(divLength)
         print(f" near: {near}\n left: {left}\n right: {right}\n bottom: {bottom}\n top: {top}\n res: {res}\n back: {back}\n ambient: {ambient}\n output: {output}")
 
         print(f" spheres: {sphereCount}")
         helper.PrintList(sphereObjectList)
         print(f" lights: {lightCount}")
         helper.PrintList(lightObjectList)
+        helper.PrintDivider(divLength)
 
    # do raytracing
     if debug:

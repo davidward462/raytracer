@@ -4,6 +4,8 @@ import constants
 import helper
 import sphere
 import light
+import color
+import ray
 
 def Raytrace(r):
     return 0

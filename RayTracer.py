@@ -1,5 +1,6 @@
 import sys
 import re
+import numpy as np
 import constants 
 import helper
 import sphere
@@ -171,7 +172,10 @@ def main():
     if debug:
         print(" Begin raytracing...")
 
+    # TODO: determine pixels on screen (something related to the camera)
     pixelList = []
+
+    # Main recursive raytracing algorithm
     for pixel in pixelList:
         color = Raytrace()
 

@@ -17,16 +17,17 @@ class Light:
         inputAttributeCount = len(self.attributeList)
         try:
             # correct number of attributes
-            self.name = self.attributeList[1] 
-            self.posX = self.attributeList[2]
-            self.posY = self.attributeList[3]
-            self.posZ = self.attributeList[4]
-            self.ir = self.attributeList[5]
-            self.ig = self.attributeList[6]
-            self.ib = self.attributeList[7]
+            self.name = self.attributeList[1]
+            self.posX = float(self.attributeList[2])
+            self.posY = float(self.attributeList[3])
+            self.posZ = float(self.attributeList[4])
+            self.ir = float(self.attributeList[5])
+            self.ig = float(self.attributeList[6])
+            self.ib = float(self.attributeList[7])
+            return 0 # success
         except Exception as e:
             print(f" An error occured: {e}")
-        return 0
+            return -1 # failure
 
     def PrintShort(self):
         return f"\nname: {self.name}\nx: {self.posX}\ny: {self.posY}\nz: {self.posZ}"

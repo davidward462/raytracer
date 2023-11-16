@@ -27,24 +27,24 @@ class Sphere:
         try:
             # TODO: do correct casting of numbers
             self.name = self.attributeList[1] 
-            self.posX = self.attributeList[2]
-            self.posY = self.attributeList[3]
-            self.posZ = self.attributeList[4]
-            self.scaleX = self.attributeList[5]
-            self.scaleY = self.attributeList[6]
-            self.scaleZ = self.attributeList[7]
-            self.r = self.attributeList[8]
-            self.g = self.attributeList[9]
-            self.b = self.attributeList[10]
-            self.ka = self.attributeList[11]
-            self.kd = self.attributeList[12]
-            self.ks = self.attributeList[13]
-            self.kr = self.attributeList[14]
-            self.n = self.attributeList[15]
+            self.posX = float(self.attributeList[2])
+            self.posY = float(self.attributeList[3])
+            self.posZ = float(self.attributeList[4])
+            self.scaleX = float(self.attributeList[5])
+            self.scaleY = float(self.attributeList[6])
+            self.scaleZ = float(self.attributeList[7])
+            self.r = float(self.attributeList[8])
+            self.g = float(self.attributeList[9])
+            self.b = float(self.attributeList[10])
+            self.ka = float(self.attributeList[11])
+            self.kd = float(self.attributeList[12])
+            self.ks = float(self.attributeList[13])
+            self.kr = float(self.attributeList[14])
+            self.n = float(self.attributeList[15])
+            return 0 # success
         except Exception as e:
             print(f" An error occured: {e}")
-
-        return 0
+            return -1 # failure
 
     def PrintShort(self):
         return f"\nname: {self.name}\nx: {self.posX}\ny: {self.posY}\nz: {self.posZ}"

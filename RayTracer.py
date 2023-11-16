@@ -125,14 +125,6 @@ def main():
                 print(f" Error, no match with {firstElement} found.")
                 parseSuccess = False
 
-    # check parsing status, exit if failed.
-    if debug:
-        if parseSuccess:
-            print(f" File at '{filePath}' parsed sucessfully.")
-        else:
-            print(f" Parsing of '{filePath}' failed.")
-            sys.exit() 
-
     # handle sphere and light data
     
     # count of each
@@ -142,13 +134,23 @@ def main():
     # create and store sphere objects in list
     for i in range(sphereCount):
         s = sphere.Sphere(sphereDataList[i])
-        s.Parse()
+        if s.Parse() < 0:
+            parseSuccess = False
         sphereObjectList.append(s)
 
     for i in range(lightCount):
         l = light.Light(lightDataList[i])
-        l.Parse()
+        if l.Parse() < 0:
+            parseSuccess = False
         lightObjectList.append(l)
+
+    # check parsing status, exit if failed.
+    if debug:
+        if parseSuccess:
+            print(f" Data in file '{filePath}' processed sucessfully.")
+        else:
+            print(f" Failure processing data in '{filePath}'")
+            sys.exit() 
 
     # output data collected from file
     if verboseOutput:

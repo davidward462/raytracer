@@ -64,8 +64,10 @@ def main():
     # catch errors
     except FileNotFoundError:
         print(f" The file at '{filePath}' was not found.")
+        sys.exit() 
     except Exception as e:
         print(f" An error occurred: {e}")
+        sys.exit() 
 
     if debug:
         print(" Processing file...")

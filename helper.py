@@ -1,3 +1,26 @@
+import re
+
+def Parse(inputData):
+    # split file on newline
+    dataLines = inputData.split('\n')
+
+    # this will be returned
+    dataLineList = []
+
+    # process data
+    for line in dataLines:
+        # split on >= 1 spaces, or >= 1 tabs
+        splitLine = re.split(" +|\t+", line)
+
+        # remove empty entries
+        for i in splitLine:
+            if(len(i)==0):
+                splitLine.remove(i)
+                
+        dataLineList.append(splitLine)
+    return dataLineList
+
+
 def PrintList(myList):
     for element in myList:
         print(element)

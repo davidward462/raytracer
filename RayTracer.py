@@ -1,7 +1,6 @@
 import sys
 import re
 import numpy as np
-import parse
 import constants 
 import helper
 import sphere

@@ -147,6 +147,7 @@ def main():
 
     for i in range(lightCount):
         l = light.Light(lightDataList[i])
+        l.Parse()
         lightObjectList.append(l)
 
     # output data collected from file

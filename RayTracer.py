@@ -1,6 +1,7 @@
 import sys
 import re
 import numpy as np
+import parse
 import constants 
 import helper
 import sphere
@@ -73,28 +74,10 @@ def main():
     if debug:
         print(" Processing file...")
 
-    # split file on newline
-    dataLines = data.split('\n')
+    # use parser function
+    dataLineList = helper.Parse(data)
 
-    # store split lines
-    dataLineList = []
-
-    # process data
-    count = 0
-    for line in dataLines:
-
-        # split on >= 1 spaces, or >= 1 tabs
-        print(f"{count}: {line}")
-        splitLine = re.split(" +|\t+", line)
-        for i in splitLine:
-            if(len(i)==0):
-                splitLine.remove(i)
-        dataLineList.append(splitLine)
-        count = count + 1
-
-    count = 0
     for line in dataLineList:
-        print(f"{count} {line}")
         
         if len(line) > 1:
             firstElement = line[0] # string identifier for data in line
@@ -114,7 +97,6 @@ def main():
                 top = int(line[1])
 
             elif(firstElement == constants.near):
-                print(f"near[{line[1]}]")
                 near = int(line[1])
 
             elif(firstElement == constants.ambient):
@@ -140,7 +122,6 @@ def main():
             else:
                 print(f" Error, no match with {firstElement} found.")
                 parseSuccess = False
-        count = count + 1
 
     # handle sphere and light data
     

@@ -15,18 +15,17 @@ class Light:
         
     def Parse(self):
         inputAttributeCount = len(self.attributeList)
-
-        if (inputAttributeCount != self.attributeCount):
-            print(" Incorrect number of attributes in light input.")
-        else:
+        try:
             # correct number of attributes
-            self.name = self.attributeList[0] 
-            self.posX = self.attributeList[1]
-            self.posY = self.attributeList[2]
-            self.posZ = self.attributeList[3]
-            self.ir = self.attributeList[4]
-            self.ig = self.attributeList[5]
-            self.ib = self.attributeList[6]
+            self.name = self.attributeList[1] 
+            self.posX = self.attributeList[2]
+            self.posY = self.attributeList[3]
+            self.posZ = self.attributeList[4]
+            self.ir = self.attributeList[5]
+            self.ig = self.attributeList[6]
+            self.ib = self.attributeList[7]
+        except Exception as e:
+            print(f" An error occured: {e}")
         return 0
 
     def PrintShort(self):

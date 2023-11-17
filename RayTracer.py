@@ -172,14 +172,11 @@ def main():
     for pixel in pixelList:
         color = Raytrace()
 
-
-    width = 128
-    height = 128
-    fname3 = "sceneP3.ppm"
-    fname6 = "sceneP6.ppm"
+    # For output file...
+    width = 400
+    height = 400
     pixels = bytearray(3 * width * height)
 
-    # For output file...
     # Create a gradient for illustration purposes only
     scale = 128.0 / width
     k = 0
@@ -191,8 +188,8 @@ def main():
             pixels[k + 2] = c
             k += 3
 
-    #ppm.save_image_p3(width, height, fname3, pixels)
-    #ppm.save_image_p6(width, height, fname6, pixels)
+    ppm.save_image_p3(width, height, output, pixels)
+    #ppm.save_image_p6(width, height, output, pixels) # should this have a different output name?
 
     if debug:
         print(" Complete.")

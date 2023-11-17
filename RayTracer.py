@@ -3,6 +3,7 @@ import re
 import numpy as np
 import constants 
 import helper
+import ppm
 import sphere
 import light
 import color
@@ -170,6 +171,28 @@ def main():
     # Main recursive raytracing algorithm
     for pixel in pixelList:
         color = Raytrace()
+
+
+    width = 128
+    height = 128
+    fname3 = "sceneP3.ppm"
+    fname6 = "sceneP6.ppm"
+    pixels = bytearray(3 * width * height)
+
+    # For output file...
+    # Create a gradient for illustration purposes only
+    scale = 128.0 / width
+    k = 0
+    for i in range(height):
+        for j in range(width):
+            c = int((i + j) * scale)
+            pixels[k] = c
+            pixels[k + 1] = c
+            pixels[k + 2] = c
+            k += 3
+
+    #ppm.save_image_p3(width, height, fname3, pixels)
+    #ppm.save_image_p6(width, height, fname6, pixels)
 
     if debug:
         print(" Complete.")

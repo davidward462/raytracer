@@ -172,6 +172,9 @@ def main():
     for pixel in pixelList:
         color = Raytrace()
 
+    if debug:
+        print(" Complete.")
+
     # For output file...
     width = 400
     height = 400
@@ -190,9 +193,6 @@ def main():
 
     ppm.save_image_p3(width, height, output, pixels)
     #ppm.save_image_p6(width, height, output, pixels) # should this have a different output name?
-
-    if debug:
-        print(" Complete.")
 
     file.close()
 

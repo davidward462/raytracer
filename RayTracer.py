@@ -57,11 +57,8 @@ def main():
     # Check number of arguments
     helper.CheckArgs(numberOfArgs, selfFilename)
 
-    # check for flags
-    if numberOfArgs == 3:
-        flag = fileArgs[2]
-        if flag == "-v":
-            verboseOutput = True
+    # check for verbose flag
+    verboseOutput = helper.IsVerboseOutput(numberOfArgs, fileArgs)
 
     # open file
     filePath = fileArgs[1]

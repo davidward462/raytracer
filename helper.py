@@ -35,4 +35,11 @@ def CheckArgs(numberOfArgs, filename):
     # exit program if number of arguments is wrong
     if numberOfArgs < 2:
         print(f" Usage: {filename} <inputFile>")
-        sys.exit() 
+        sys.exit()
+
+def IsVerboseOutput(numberOfArgs, fileArgs):
+    if numberOfArgs == 3:
+        flag = fileArgs[2]
+        if flag == "-v":
+            return True
+    return False

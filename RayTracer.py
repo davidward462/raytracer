@@ -9,10 +9,15 @@ import light
 import color
 import ray
 
+MAX_DEPTH = 0 # TODO: determine actual value
+
 def Raytrace(ray):
 
-    c = color.Color(0, 0, 0)
+    c = color.Color(0, 0, 0) # default black
+    if ray.GetDepth() > MAX_DEPTH:
+        return c
 
+    c.SetValue((1, 1, 1))
     # return color
     return c
 

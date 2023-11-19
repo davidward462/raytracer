@@ -7,4 +7,4 @@ class Ray:
         self.depth = depth
 
     def __str__(self):
-        return f"origin: {self.origin}\ndepth: {self.depth}"
+        return f" origin: {self.origin}\ndepth: {self.depth}"

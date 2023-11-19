@@ -47,7 +47,7 @@ class Sphere:
             return -1 # failure
 
     def PrintShort(self):
-        return f"\nname: {self.name}\nx: {self.posX}\ny: {self.posY}\nz: {self.posZ}"
+        return f"\n name: {self.name}\nx: {self.posX}\ny: {self.posY}\nz: {self.posZ}"
 
     def __str__(self):
-        return f"\n{self.name} {self.posX} {self.posY} {self.posZ} {self.scaleX} {self.scaleY} {self.scaleZ} {self.r} {self.g} {self.b} {self.ka} {self.kd} {self.ks} {self.kr} {self.n}"
+        return f" \n{self.name} {self.posX} {self.posY} {self.posZ} {self.scaleX} {self.scaleY} {self.scaleZ} {self.r} {self.g} {self.b} {self.ka} {self.kd} {self.ks} {self.kr} {self.n}"

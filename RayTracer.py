@@ -9,8 +9,12 @@ import light
 import color
 import ray
 
-def Raytrace(r):
-    return 0
+def Raytrace(ray):
+
+    c = color.Color(0, 0, 0)
+
+    # return color
+    return c
 
 def main():
 
@@ -166,11 +170,18 @@ def main():
         print(" Begin raytracing...")
 
     # TODO: determine pixels on screen (something related to the camera)
-    pixelList = []
+    pixelList = [0]
 
     # Main recursive raytracing algorithm
     for pixel in pixelList:
-        color = Raytrace()
+        # determine ray_cr from eye through pixel
+
+        # create ray
+        r = ray.Ray((0, 0, 0))
+        r.SetDepth(1)
+
+        color = Raytrace(r)
+        print(color)
 
     if debug:
         print(" Complete.")

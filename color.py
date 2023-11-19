@@ -4,3 +4,6 @@ class Color:
         self.g = g
         self.b = b
         self.value = (r, g, b)
+        
+    def __str__(self):
+        return f"rgb({self.value})"

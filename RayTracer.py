@@ -54,10 +54,8 @@ def main():
     sphereObjectList = []
     lightObjectList = []
 
-    # exit program if number of arguments is wrong
-    if numberOfArgs < 2:
-        print(f" Usage: {selfFilename} <inputFile>")
-        sys.exit() 
+    # Check number of arguments
+    helper.CheckArgs(numberOfArgs, selfFilename)
 
     # check for flags
     if numberOfArgs == 3:

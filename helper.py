@@ -1,3 +1,4 @@
+import sys
 import re
 
 def Parse(inputData):
@@ -29,3 +30,9 @@ def PrintDivider(length):
     for i in range(length):
         print("-", end='')
     print()
+
+def CheckArgs(numberOfArgs, filename):
+    # exit program if number of arguments is wrong
+    if numberOfArgs < 2:
+        print(f" Usage: {filename} <inputFile>")
+        sys.exit() 

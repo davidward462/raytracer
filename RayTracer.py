@@ -2,7 +2,7 @@ import sys
 import re
 import numpy as np
 import constants 
-import helper
+import program
 import ppm
 import sphere
 import light
@@ -55,10 +55,10 @@ def main():
     lightObjectList = []
 
     # Check number of arguments
-    helper.CheckArgs(numberOfArgs, selfFilename)
+    program.CheckArgs(numberOfArgs, selfFilename)
 
     # check for verbose flag
-    verboseOutput = helper.IsVerboseOutput(numberOfArgs, fileArgs)
+    verboseOutput = program.IsVerboseOutput(numberOfArgs, fileArgs)
 
     # open file
     filePath = fileArgs[1]
@@ -79,7 +79,7 @@ def main():
         print(" Processing file...")
 
     # use parser function
-    dataLineList = helper.Parse(data)
+    dataLineList = program.Parse(data)
 
     for line in dataLineList:
         
@@ -156,14 +156,14 @@ def main():
 
     # output data collected from file
     if verboseOutput:
-        helper.PrintDivider(divLength)
+        program.PrintDivider(divLength)
         print(f" near: {near}\n left: {left}\n right: {right}\n bottom: {bottom}\n top: {top}\n res: {res}\n back: {back}\n ambient: {ambient}\n output: {output}")
 
         print(f" spheres: {sphereCount}")
-        helper.PrintList(sphereObjectList)
+        program.PrintList(sphereObjectList)
         print(f" lights: {lightCount}")
-        helper.PrintList(lightObjectList)
-        helper.PrintDivider(divLength)
+        program.PrintList(lightObjectList)
+        program.PrintDivider(divLength)
 
    # do raytracing
     if debug:

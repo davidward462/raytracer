@@ -43,3 +43,7 @@ def IsVerboseOutput(numberOfArgs, fileArgs):
         if flag == "-v":
             return True
     return False
+
+# Ambient, diffuste, specular lighting function
+def ADS():
+    return 0

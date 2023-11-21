@@ -60,4 +60,8 @@ def ADS():
     diffuse = color.Color()
     specular = color.Color()
 
+    resultColor.AddColor(ambient)
+    resultColor.AddColor(diffuse)
+    resultColor.AddColor(specular)
+
     return resultColor

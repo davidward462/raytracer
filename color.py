@@ -1,5 +1,8 @@
+import numpy as np
+
 class Color:
     def __init__(self, r=0, g=0, b=0):
+        self.rgb = np.array([r, g, b])
         self.r = r
         self.g = g
         self.b = b
@@ -15,6 +18,9 @@ class Color:
         self.r = r
         self.g = g
         self.b = b
+        self.rbg[0] = r
+        self.rgb[1] = g
+        self.rgb[2] = b
 
     def AddColor(self, inColor):
         sumR = self.r + inColor.r

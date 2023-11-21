@@ -1,5 +1,6 @@
 import sys
 import re
+import color
 
 def Parse(inputData):
     # split file on newline
@@ -45,5 +46,18 @@ def IsVerboseOutput(numberOfArgs, fileArgs):
     return False
 
 # Ambient, diffuste, specular lighting function
+'''
+PIXEL_COLOR[c] = Ka*Ia[c]*O[c] +
+    for each point light (p) 
+        { Kd*Ip[c]*(N dot L)*O[c]+Ks*Ip[c]*(R dot V)n } 
+    + Kr*(Color returned from reflection ray)
+
+PIXEL_COLOR[c] = Ka*Ia[c]*O[c] + Kd*Ip[c]*(N dot L)*O[c]+Ks*Ip[c]*(R dot V)n + Kr*(Color returned from reflection ray)
+'''
 def ADS():
-    return 0
+    resultColor = color.Color()
+    ambient = color.Color()
+    diffuse = color.Color()
+    specular = color.Color()
+
+    return resultColor

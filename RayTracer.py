@@ -181,7 +181,7 @@ def main():
         r.SetDepth(1)
 
         color = Raytrace(r)
-        print(color)
+        #print(color)
 
     if debug:
         print(" Complete.")

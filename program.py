@@ -54,12 +54,14 @@ PIXEL_COLOR[c] = Ka*Ia[c]*O[c] +
 
 PIXEL_COLOR[c] = Ka*Ia[c]*O[c] + Kd*Ip[c]*(N dot L)*O[c]+Ks*Ip[c]*(R dot V)n + Kr*(Color returned from reflection ray)
 '''
-def ADS():
+def ADS(ka, kd, ks):
+    print(" call ADS()...")
     resultColor = color.Color()
     ambient = color.Color()
     diffuse = color.Color()
     specular = color.Color()
 
+    # sum ambient, diffuse, and specular into result
     resultColor.AddColor(ambient)
     resultColor.AddColor(diffuse)
     resultColor.AddColor(specular)

@@ -15,6 +15,12 @@ class Color:
         self.r = r
         self.g = g
         self.b = b
+
+    def AddColor(self, inColor):
+        sumR = self.r + inColor.r
+        sumG = self.g + inColor.g
+        sumB = self.b + inColor.b
+        self.SetRGB(sumR, sumG, sumB)
         
     def __str__(self):
         return f" rgb({self.r}, {self.g}, {self.b})"

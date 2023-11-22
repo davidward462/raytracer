@@ -53,6 +53,8 @@ def Normalize(v):
         return v
     return v / norm
 
+def Dot(a, b):
+    return np.dot(a, b)
 
 # Ambient, diffuste, specular lighting function
 '''
@@ -68,9 +70,12 @@ def ADS(ka, kd, ks, pos, Lpos, N):
 
     L = Normalize(Lpos - pos)
     V = Normalize( -1 * pos)
-    # reflect 
+    R = np.array([0, 0, 0]) # TODO: add reflection function
 
-    ambient = np.array([1, 0, 0])
+    lightDotNormal = max( Dot(L, N), 0.0 )
+
+
+    ambient = np.array([0, 0, 0])
     diffuse = np.array([0, 0, 0])
     specular = np.array([0, 0, 0])
 

@@ -18,7 +18,7 @@ def Raytrace(ray):
     if ray.GetDepth() > MAX_DEPTH:
         return c
 
-    c = program.ADS(1, 1, 1, 1, 1, 1)
+    c = utility.ADS(1, 1, 1, 1, 1, 1)
 
     return c
 
@@ -58,10 +58,10 @@ def main():
     lightObjectList = []
 
     # Check number of arguments
-    program.CheckArgs(numberOfArgs, selfFilename)
+    utility.CheckArgs(numberOfArgs, selfFilename)
 
     # check for verbose flag
-    verboseOutput = program.IsVerboseOutput(numberOfArgs, fileArgs)
+    verboseOutput = utility.IsVerboseOutput(numberOfArgs, fileArgs)
 
     # open file
     filePath = fileArgs[1]
@@ -82,7 +82,7 @@ def main():
         print(" Processing file...")
 
     # use parser function
-    dataLineList = program.Parse(data)
+    dataLineList = utility.Parse(data)
 
     for line in dataLineList:
         
@@ -159,14 +159,14 @@ def main():
 
     # output data collected from file
     if verboseOutput:
-        program.PrintDivider(divLength)
+        utility.PrintDivider(divLength)
         print(f" near: {near}\n left: {left}\n right: {right}\n bottom: {bottom}\n top: {top}\n res: {res}\n back: {back}\n ambient: {ambient}\n output: {output}")
 
         print(f" spheres: {sphereCount}")
-        program.PrintList(sphereObjectList)
+        utility.PrintList(sphereObjectList)
         print(f" lights: {lightCount}")
-        program.PrintList(lightObjectList)
-        program.PrintDivider(divLength)
+        utility.PrintList(lightObjectList)
+        utility.PrintDivider(divLength)
 
    # do raytracing
     if debug:

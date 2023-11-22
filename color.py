@@ -19,7 +19,7 @@ class Color:
         return self.rgb[2]
 
     def AddColor(self, inColor):
-        self.SetRGB(inColor.rgb[0], inColor.rgb[1], inColor.rgb[2])
+        self.rgb = self.rgb + inColor.rgb
         
     def __str__(self):
         return f"rgb({self.rgb[0]}, {self.rgb[1]}, {self.rgb[2]})"

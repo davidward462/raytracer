@@ -9,7 +9,7 @@ import light
 import color
 import ray
 
-MAX_DEPTH = 1 # TODO: determine actual value
+MAX_DEPTH = 0 # TODO: determine actual value
 
 def Raytrace(ray):
 
@@ -182,8 +182,8 @@ def main():
             # determine ray_cr from eye through pixel
 
             # create ray
-            origin = np.array([0, 0, 0])
-            direction = np.array([0, 0, 0])
+            origin = np.array([col-width/2+0.5, row-height/2+0.5, 100])
+            direction = np.array([0, 0, -1])
             r = ray.Ray(origin, direction)
             r.SetDepth(1)
 

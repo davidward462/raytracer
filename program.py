@@ -54,7 +54,9 @@ def Normalize(v):
     return v / norm
 
 def Dot(a, b):
-    return np.dot(a, b)
+    r = np.dot(a, b)
+    print(f"Dot({a}, {b}) = {r})")
+    return r
 
 # Ambient, diffuste, specular lighting function
 '''
@@ -66,21 +68,33 @@ PIXEL_COLOR[c] = Ka*Ia[c]*O[c] +
 PIXEL_COLOR[c] = Ka*Ia[c]*O[c] + Kd*Ip[c]*(N dot L)*O[c]+Ks*Ip[c]*(R dot V)n + Kr*(Color returned from reflection ray)
 '''
 def ADS(ka, kd, ks, pos, Lpos, N):
-    print(" call ADS()...")
+    print(f" ADS({ka}, {kd}, {ks}, {pos}, {Lpos}, {N})...")
+
+    # might be function arguments...
+    shine = 1
+    N = np.array([0, 0, 0])
+    pos = np.array([0, 0, 0]) 
+    Lpos = np.array([0, 0, 0])
 
     L = Normalize(Lpos - pos)
     V = Normalize( -1 * pos)
     R = np.array([0, 0, 0]) # TODO: add reflection function
 
     lightDotNormal = max( Dot(L, N), 0.0 )
+    diffuse = np.array([0, 0, 0])
+    diffuse = kd * lightDotNormal # this is diffuseProduct (what's that?) * lightDotNormal
 
+    base = max( Dot(R, V), 0.0 )
+    reflectedDotViewShiny = np.power(base, shine)
+
+    specular = np.array([0, 0, 0])
+    specular = ks = reflectedDotViewShiny
+
+    if ( Dot(L, N) < 0.0):
+        specular = np.array([0, 0, 0])
 
     ambient = np.array([0, 0, 0])
-    diffuse = np.array([0, 0, 0])
-    specular = np.array([0, 0, 0])
-
 
     result = ambient + diffuse + specular
-
 
     return result 

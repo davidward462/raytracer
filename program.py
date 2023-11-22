@@ -45,6 +45,14 @@ def IsVerboseOutput(numberOfArgs, fileArgs):
             return True
     return False
 
+# Normalize a vector, which is a numpy array
+def Normalize(v):
+    norm = np.linalg.norm(v)
+    if norm == 0:
+        return v
+    return v / norm
+
+
 # Ambient, diffuste, specular lighting function
 '''
 PIXEL_COLOR[c] = Ka*Ia[c]*O[c] +
@@ -54,8 +62,11 @@ PIXEL_COLOR[c] = Ka*Ia[c]*O[c] +
 
 PIXEL_COLOR[c] = Ka*Ia[c]*O[c] + Kd*Ip[c]*(N dot L)*O[c]+Ks*Ip[c]*(R dot V)n + Kr*(Color returned from reflection ray)
 '''
-def ADS(ka, kd, ks):
+def ADS(ka, kd, ks, pos, Lpos, N):
     print(" call ADS()...")
+
+    L = Normalize(Lpos - pos)
+
     resultColor = color.Color()
     ambient = color.Color()
     diffuse = color.Color()

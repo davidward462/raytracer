@@ -66,15 +66,15 @@ def ADS(ka, kd, ks, pos, Lpos, N):
     print(" call ADS()...")
 
     L = Normalize(Lpos - pos)
+    V = Normalize( -1 * pos)
+    # reflect 
 
-    resultColor = color.Color()
-    ambient = color.Color()
-    diffuse = color.Color()
-    specular = color.Color()
+    ambient = np.array([0, 0, 0])
+    diffuse = np.array([0, 0, 0])
+    specular = np.array([0, 0, 0])
 
-    # sum ambient, diffuse, and specular into result
-    resultColor.AddColor(ambient)
-    resultColor.AddColor(diffuse)
-    resultColor.AddColor(specular)
+
+    result = ambient + diffuse + specular
+
 
     return resultColor

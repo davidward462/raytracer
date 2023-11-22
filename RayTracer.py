@@ -29,6 +29,8 @@ def main():
     parseSuccess = True
     verboseOutput = False
     divLength = 20
+    width = 400
+    height = 400
 
     # get all system arguments, including source file name 
     fileArgs = sys.argv   
@@ -182,14 +184,11 @@ def main():
         r.SetDepth(1)
 
         color = Raytrace(r)
-        print(f" pixel color after raytrace: {color}")
 
     if debug:
         print(" Complete.")
 
     # For output file...
-    width = 400
-    height = 400
     pixels = bytearray(3 * width * height)
 
     # Create a gradient for illustration purposes only

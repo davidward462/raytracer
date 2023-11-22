@@ -55,7 +55,6 @@ def Normalize(v):
 
 def Dot(a, b):
     r = np.dot(a, b)
-    print(f"Dot({a}, {b}) = {r})")
     return r
 
 # Ambient, diffuste, specular lighting function
@@ -68,7 +67,6 @@ PIXEL_COLOR[c] = Ka*Ia[c]*O[c] +
 PIXEL_COLOR[c] = Ka*Ia[c]*O[c] + Kd*Ip[c]*(N dot L)*O[c]+Ks*Ip[c]*(R dot V)n + Kr*(Color returned from reflection ray)
 '''
 def ADS(ka, kd, ks, pos, Lpos, N):
-    print(f" ADS({ka}, {kd}, {ks}, {pos}, {Lpos}, {N})...")
 
     # might be function arguments...
     shine = 1

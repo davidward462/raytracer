@@ -1,5 +1,6 @@
 import sys
 import re
+import numpy as np
 import color
 
 def Parse(inputData):
@@ -69,7 +70,7 @@ def ADS(ka, kd, ks, pos, Lpos, N):
     V = Normalize( -1 * pos)
     # reflect 
 
-    ambient = np.array([0, 0, 0])
+    ambient = np.array([1, 0, 0])
     diffuse = np.array([0, 0, 0])
     specular = np.array([0, 0, 0])
 
@@ -77,4 +78,4 @@ def ADS(ka, kd, ks, pos, Lpos, N):
     result = ambient + diffuse + specular
 
 
-    return resultColor
+    return result 

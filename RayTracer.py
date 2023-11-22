@@ -9,7 +9,7 @@ import light
 import color
 import ray
 
-MAX_DEPTH = 0 # TODO: determine actual value
+MAX_DEPTH = 1 # TODO: determine actual value
 
 def Raytrace(ray):
 
@@ -18,7 +18,7 @@ def Raytrace(ray):
     if ray.GetDepth() > MAX_DEPTH:
         return c
 
-    c = program.ADS()
+    c = program.ADS(1, 1, 1, 1, 1, 1)
 
     return c
 

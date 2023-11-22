@@ -17,7 +17,7 @@ def Raytrace(ray):
     if ray.GetDepth() > MAX_DEPTH:
         return c
 
-    #c = program.ADS()
+    c = program.ADS()
 
     return c
 

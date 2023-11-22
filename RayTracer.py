@@ -2,7 +2,7 @@ import sys
 import re
 import numpy as np
 import constants 
-import program
+import utility
 import ppm
 import sphere
 import light
@@ -176,14 +176,18 @@ def main():
     pixelList = [0]
 
     # Main recursive raytracing algorithm
-    for pixel in pixelList:
-        # determine ray_cr from eye through pixel
+    for row in range(height):
+        for col in range(width):
+            # for each pixel on the screen
+            # determine ray_cr from eye through pixel
 
-        # create ray
-        r = ray.Ray((0, 0, 0))
-        r.SetDepth(1)
+            # create ray
+            origin = np.array([0, 0, 0])
+            direction = np.array([0, 0, 0])
+            r = ray.Ray(origin, direction)
+            r.SetDepth(1)
 
-        color = Raytrace(r)
+            color = Raytrace(r)
 
     if debug:
         print(" Complete.")

@@ -175,11 +175,17 @@ def main():
     # TODO: determine pixels on screen (something related to the camera)
     pixelList = [0]
 
+    W = width // 2
+    H = height // 2
+
     # Main recursive raytracing algorithm
     for row in range(height):
         for col in range(width):
             # for each pixel on the screen
             # determine ray_cr from eye through pixel
+
+            uc = (-1 * W) + (W * (2 * col)/width )
+            vr = (-1 * H) + (H * (2 * row)/height )
 
             # create ray
             origin = np.array([col-width/2+0.5, row-height/2+0.5, 100])

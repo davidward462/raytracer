@@ -199,6 +199,8 @@ def main():
             r.SetDepth(1)
 
             color = Raytrace(r)
+
+            # write to bytearray
             pixels[k] = color[0]
             pixels[k+1] = color[1]
             pixels[k+2] = color[2]

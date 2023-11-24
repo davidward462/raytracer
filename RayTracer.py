@@ -15,6 +15,7 @@ def Raytrace(ray):
 
     c = color.Color(0, 0, 0) # default black
     c = np.array([0, 0, 0])
+
     if ray.GetDepth() > MAX_DEPTH:
         return c
 
@@ -173,10 +174,14 @@ def main():
         print(" Begin raytracing...")
 
     # TODO: determine pixels on screen (something related to the camera)
-    pixelList = [0]
 
     W = width // 2
     H = height // 2
+
+    # For output file
+    pixels = bytearray(3 * width * height)
+    k = 0
+    pixelsOut = []
 
     # Main recursive raytracing algorithm
     for row in range(height):
@@ -194,23 +199,13 @@ def main():
             r.SetDepth(1)
 
             color = Raytrace(r)
+            pixels[k] = color[0]
+            pixels[k+1] = color[1]
+            pixels[k+2] = color[2]
+            k += 3
 
     if debug:
         print(" Complete.")
-
-    # For output file...
-    pixels = bytearray(3 * width * height)
-
-    # Create a gradient for illustration purposes only
-    scale = 128.0 / width
-    k = 0
-    for i in range(height):
-        for j in range(width):
-            c = int((i + j) * scale)
-            pixels[k] = c
-            pixels[k + 1] = c
-            pixels[k + 2] = c
-            k += 3
 
     ppm.save_image_p3(width, height, output, pixels)
     #ppm.save_image_p6(width, height, output, pixels) # should this have a different output name?

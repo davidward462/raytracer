@@ -49,9 +49,9 @@ def main():
     bottom = 0
     top = 0
     res = []
-    sphereDataList = []
-    lightDataList = []
-    back = []
+    sphereDataList = []     # for temporary storage of sphere data
+    lightDataList = []      # for temporary storage of light data
+    back = []               # background color
     ambient = []
     output = ""
 

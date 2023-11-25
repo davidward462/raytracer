@@ -13,12 +13,12 @@ MAX_DEPTH = 0 # TODO: determine actual value
 
 def Raytrace(ray):
 
-    c = color.Color(0, 0, 0) # default black
     c = np.array([0, 0, 0])
 
     if ray.GetDepth() > MAX_DEPTH:
         return c
 
+    # TODO: pass c into ADS() somehow
     c = utility.ADS(1, 1, 1, 1, 1, 1)
 
     return c

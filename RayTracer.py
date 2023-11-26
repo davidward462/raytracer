@@ -13,7 +13,7 @@ MAX_DEPTH = 0 # TODO: determine actual value
 
 def Raytrace(ray):
 
-    c = np.array([0, 0, 0])
+    c = np.array([0, 0, 0]) # color vector
 
     if ray.GetDepth() > MAX_DEPTH:
         return c

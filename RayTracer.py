@@ -55,8 +55,10 @@ def main():
     ambient = []
     output = ""
 
+    # program entity variables
     sphereObjectList = []
     lightObjectList = []
+    camera = np.array([0, 0, -1*near]) # TODO: should N here be negative?
 
     # Check number of arguments
     utility.CheckArgs(numberOfArgs, selfFilename)
@@ -191,6 +193,9 @@ def main():
 
             uc = (-1 * W) + (W * (2 * col)/width )
             vr = (-1 * H) + (H * (2 * row)/height )
+
+            camera[0] = uc
+            camera[1] = vr
 
             # create ray
             origin = np.array([col-width/2+0.5, row-height/2+0.5, 100])

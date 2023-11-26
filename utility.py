@@ -95,4 +95,18 @@ def ADS(ka, kd, ks, pos, Lpos, N):
 
     result = ambient + diffuse + specular
 
-    return result 
+    return result
+
+# DRAFT
+# Check if ray intersects with objects in the scene 
+# If there is an intersection, return the coordinates
+# If there is no intersection, maybe return None?
+# TODO: determine exactly how this function will work
+def Intersection(ray):
+    isIntersection = False
+    intersectPoint = np.array([0, 0, 0])
+
+    if isIntersection:
+        return intersectPoint
+    else:
+        return None

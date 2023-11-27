@@ -9,7 +9,7 @@ import light
 import color
 import ray
 
-MAX_DEPTH = 0 # TODO: determine actual value
+MAX_DEPTH = 2 # TODO: determine actual value
 
 # TODO: what arguments should this function take?
 def Raytrace(ray, sphereObjectList, lightObjectList, background):
@@ -17,6 +17,7 @@ def Raytrace(ray, sphereObjectList, lightObjectList, background):
     c = np.array([0, 0, 0]) # color vector
 
     if ray.GetDepth() > MAX_DEPTH:
+        print(f"{ray.GetDepth()} > {MAX_DEPTH}")
         return c
     
     # intersection of ray with object
@@ -28,6 +29,7 @@ def Raytrace(ray, sphereObjectList, lightObjectList, background):
         c[0] = background[0]
         c[1] = background[1]
         c[2] = background[2]
+        #print(f" {c}")
         return c
 
     # TODO: pass c into ADS() somehow
@@ -44,6 +46,7 @@ def main():
     divLength = 20
     width = 400
     height = 400
+    ppmValueScale = 255
 
     # get all system arguments, including source file name 
     fileArgs = sys.argv   
@@ -197,6 +200,8 @@ def main():
     k = 0
     pixelsOut = []
 
+    scale = 128.0 / width
+
     # Main recursive raytracing algorithm
     for row in range(height):
         for col in range(width):
@@ -216,18 +221,31 @@ def main():
             r.SetDepth(1)
 
             # TODO: make sure arguments match, they are subject to change
-            color = Raytrace(r, sphereObjectList, lightObjectList, background)
+            color = Raytrace(r, sphereObjectList, lightObjectList, back)
 
+            color[0] = utility.PpmColorScale(color[0])
+            color[1] = utility.PpmColorScale(color[1])
+            color[2] = utility.PpmColorScale(color[2])
+
+            #color * ppmValueScale
+            pixels[k] = color[0]
+            pixels[k + 1] = color[1]
+            pixels[k + 2] = color[2]
+            k += 3
+
+            '''
             # write to bytearray
             pixels[k] = color[0]
             pixels[k+1] = color[1]
             pixels[k+2] = color[2]
             k += 3
+            '''
 
     if debug:
         print(" Complete.")
 
     ppm.save_image_p3(width, height, output, pixels)
+    #print(f"{pixels}")
     #ppm.save_image_p6(width, height, output, pixels) # should this have a different output name?
 
     file.close()

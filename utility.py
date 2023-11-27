@@ -67,7 +67,7 @@ PIXEL_COLOR[c] = Ka*Ia[c]*O[c] +
 PIXEL_COLOR[c] = Ka*Ia[c]*O[c] + Kd*Ip[c]*(N dot L)*O[c]+Ks*Ip[c]*(R dot V)n + Kr*(Color returned from reflection ray)
 '''
 def ADS(ka, kd, ks, pos, Lpos, N):
-
+    print(" ADS()...")
     # might be function arguments...
     shine = 1
     N = np.array([0, 0, 0])
@@ -110,3 +110,7 @@ def Intersection(ray):
         return intersectPoint
     else:
         return None
+
+# Scale color value and cast to integer
+def PpmColorScale(color):
+    return (int)(color * 255)

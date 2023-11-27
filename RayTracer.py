@@ -221,11 +221,11 @@ def main():
             # TODO: make sure arguments match, they are subject to change
             color = Raytrace(r, sphereObjectList, lightObjectList, back)
 
+            # Scale color value for ppm format
             color[0] = utility.PpmColorScale(color[0])
             color[1] = utility.PpmColorScale(color[1])
             color[2] = utility.PpmColorScale(color[2])
 
-            #color * ppmValueScale
             pixels[k] = color[0]
             pixels[k + 1] = color[1]
             pixels[k + 2] = color[2]

@@ -200,8 +200,6 @@ def main():
     k = 0
     pixelsOut = []
 
-    scale = 128.0 / width
-
     # Main recursive raytracing algorithm
     for row in range(height):
         for col in range(width):

@@ -26,10 +26,8 @@ def Raytrace(ray, sphereObjectList, lightObjectList, background):
 
     if intersectPoint == None:
         # set background color
-        c[0] = background[0]
-        c[1] = background[1]
-        c[2] = background[2]
-        #print(f" {c}")
+        for i in range( len(c) ):
+            c[i] = background[i]
         return c
 
     # TODO: pass c into ADS() somehow
@@ -222,29 +220,18 @@ def main():
             color = Raytrace(r, sphereObjectList, lightObjectList, back)
 
             # Scale color value for ppm format
-            color[0] = utility.PpmColorScale(color[0])
-            color[1] = utility.PpmColorScale(color[1])
-            color[2] = utility.PpmColorScale(color[2])
+            for i in range( len(color) ):
+                color[i] = utility.PpmColorScale(color[i])
 
             pixels[k] = color[0]
             pixels[k + 1] = color[1]
             pixels[k + 2] = color[2]
             k += 3
 
-            '''
-            # write to bytearray
-            pixels[k] = color[0]
-            pixels[k+1] = color[1]
-            pixels[k+2] = color[2]
-            k += 3
-            '''
-
     if debug:
         print(" Complete.")
 
     ppm.save_image_p3(width, height, output, pixels)
-    #print(f"{pixels}")
-    #ppm.save_image_p6(width, height, output, pixels) # should this have a different output name?
 
     file.close()
 

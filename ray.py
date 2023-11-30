@@ -7,13 +7,13 @@ class Ray:
     def SetDepth(self, depth):
         self.depth = depth
 
-    def GetDepth(self):
+    def Depth(self):
         return self.depth
 
-    def GetOrigin(self):
+    def Origin(self):
         return self.origin
 
-    def GetDirection(self):
+    def Direction(self):
         return self.direction
 
     def __str__(self):

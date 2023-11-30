@@ -104,7 +104,7 @@ def ADS(ka, kd, ks, pos, Lpos, N):
 # If there is an intersection, return the coordinates
 # If there is no intersection, maybe return None?
 # TODO: determine exactly how this function will work
-def Intersection(ray):
+def Intersection(ray, sphereObjectList):
     isIntersection = False
     intersectPoint = np.array([0, 0, 0])
 
@@ -128,7 +128,7 @@ def Raytrace(ray, sphereObjectList, lightObjectList, background):
     
     # intersection of ray with object
     #intersectPoint = np.array([0, 0, 0])
-    intersectPoint = Intersection(ray)
+    intersectPoint = Intersection(ray, sphereObjectList)
 
     if intersectPoint == None:
         # set background color

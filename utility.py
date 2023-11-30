@@ -3,6 +3,8 @@ import re
 import numpy as np
 import color
 
+MAX_DEPTH = 2 # TODO: determine actual value
+
 def Parse(inputData):
     # split file on newline
     dataLines = inputData.split('\n')
@@ -114,3 +116,27 @@ def Intersection(ray):
 # Scale color value and cast to integer
 def PpmColorScale(color):
     return (int)(color * 255)
+
+# TODO: what arguments should this function take?
+def Raytrace(ray, sphereObjectList, lightObjectList, background):
+
+    c = np.array([0, 0, 0]) # color vector
+
+    if ray.GetDepth() > MAX_DEPTH:
+        print(f"{ray.GetDepth()} > {MAX_DEPTH}")
+        return c
+    
+    # intersection of ray with object
+    #intersectPoint = np.array([0, 0, 0])
+    intersectPoint = Intersection(ray)
+
+    if intersectPoint == None:
+        # set background color
+        for i in range( len(c) ):
+            c[i] = background[i]
+        return c
+
+    # TODO: pass c into ADS() somehow
+    c = ADS(1, 1, 1, 1, 1, 1)
+
+    return c

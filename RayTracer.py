@@ -9,32 +9,6 @@ import light
 import color
 import ray
 
-MAX_DEPTH = 2 # TODO: determine actual value
-
-# TODO: what arguments should this function take?
-def Raytrace(ray, sphereObjectList, lightObjectList, background):
-
-    c = np.array([0, 0, 0]) # color vector
-
-    if ray.GetDepth() > MAX_DEPTH:
-        print(f"{ray.GetDepth()} > {MAX_DEPTH}")
-        return c
-    
-    # intersection of ray with object
-    #intersectPoint = np.array([0, 0, 0])
-    intersectPoint = utility.Intersection(ray)
-
-    if intersectPoint == None:
-        # set background color
-        for i in range( len(c) ):
-            c[i] = background[i]
-        return c
-
-    # TODO: pass c into ADS() somehow
-    c = utility.ADS(1, 1, 1, 1, 1, 1)
-
-    return c
-
 def main():
 
     # program variables
@@ -217,7 +191,7 @@ def main():
             r.SetDepth(1)
 
             # TODO: make sure arguments match, they are subject to change
-            color = Raytrace(r, sphereObjectList, lightObjectList, back)
+            color = utility.Raytrace(r, sphereObjectList, lightObjectList, back)
 
             # Scale color value for ppm format
             for i in range( len(color) ):

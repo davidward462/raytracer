@@ -1,3 +1,5 @@
+import numpy as np
+
 class Sphere:
     def __init__(self, attributeList):
         self.attributeList = attributeList
@@ -45,6 +47,10 @@ class Sphere:
         except Exception as e:
             print(f" An error occured: {e}")
             return -1 # failure
+
+    def Center(self):
+        center = np.array([self.posX, self.posY, self.posZ])
+        return center
 
     def PrintShort(self):
         return f"\n name: {self.name}\nx: {self.posX}\ny: {self.posY}\nz: {self.posZ}"

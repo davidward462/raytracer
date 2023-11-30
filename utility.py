@@ -108,6 +108,9 @@ def Intersection(ray, sphereObjectList):
     isIntersection = False
     intersectPoint = np.array([0, 0, 0])
 
+    for sphere in sphereObjectList:
+        x = 0
+
     if isIntersection:
         return intersectPoint
     else:

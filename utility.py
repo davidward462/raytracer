@@ -100,7 +100,7 @@ def ADS(ka, kd, ks, pos, Lpos, N):
     return result
 
 # DRAFT
-# Check if ray intersects with objects in the scene 
+# Check if ray intersects with objects in the scene
 # If there is an intersection, return the coordinates
 # If there is no intersection, maybe return None?
 # TODO: determine exactly how this function will work

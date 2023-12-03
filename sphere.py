@@ -54,6 +54,13 @@ class Sphere:
         center = np.array([self.posX, self.posY, self.posZ])
         return center
 
+    # return vector which is normal to the sphere at a given point, as a numpy array
+    def Normal(self, x, y, z):
+        normal = np.array([x - self.posX, y - self.posY, z - self.posZ])
+        return normal
+
+    
+
     def PrintShort(self):
         return f"\n name: {self.name}\nx: {self.posX}\ny: {self.posY}\nz: {self.posZ}"
 

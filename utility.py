@@ -121,10 +121,10 @@ def Intersection(ray, sphereObjectList):
         b = Dot(rayOrigin, rayDir)
         c = Magnitude( np.square( rayOrigin ) )
 
-        x = np.square(b) - (a * c) # for determining number of solutions
-        if x > 0:
+        det = np.square(b) - (a * c) # for determining number of solutions
+        if det > 0:
             solutionCount = 2
-        elif x < 0:
+        elif det < 0:
             solutionCount = 0
         else: # x == 0
             solutionCount = 1

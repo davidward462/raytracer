@@ -20,7 +20,7 @@ class Sphere:
         self.kd = 0
         self.ks = 0
         self.kr = 0
-        self.n = 0
+        self.n = 0 # specular exponent
 
         self.attributeCount = 15
         
@@ -59,7 +59,7 @@ class Sphere:
         return normal
     
     def UnitNormal(self, pos):
-        unitNormal = utility.Normalize(self.Normal, pos)
+        unitNormal = utility.Normalize( self.Normal(pos) )
         return unitNormal
 
     def PrintShort(self):

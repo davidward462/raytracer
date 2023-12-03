@@ -1,4 +1,5 @@
 import numpy as np
+import utility
 
 class Sphere:
     def __init__(self, attributeList):
@@ -53,10 +54,13 @@ class Sphere:
         return center
 
     # return vector which is normal to the sphere at a given point, as a numpy array
-    def Normal(self, x, y, z):
-        normal = np.array([x - self.posX, y - self.posY, z - self.posZ])
+    def Normal(self, pos):
+        normal = np.array([pos[0] - self.posX, pos[1] - self.posY, pos[2] - self.posZ])
         return normal
     
+    def UnitNormal(self, pos):
+        unitNormal = utility.Normalize(self.Normal, pos)
+        return unitNormal
 
     def PrintShort(self):
         return f"\n name: {self.name}\nx: {self.posX}\ny: {self.posY}\nz: {self.posZ}"

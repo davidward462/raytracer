@@ -3,7 +3,7 @@ import re
 import numpy as np
 import color
 
-MAX_DEPTH = 2 # TODO: determine actual value
+MAX_DEPTH = 3 # TODO: determine actual value
 
 def Parse(inputData):
     # split file on newline
@@ -124,12 +124,16 @@ def Intersection(ray, sphereObjectList):
         det = np.square(b) - (a * c) # for determining number of solutions
         if det > 0:
             solutionCount = 2
+            isIntersection = True
         elif det < 0:
             solutionCount = 0
         else: # x == 0
             solutionCount = 1
+            isIntersection = True
 
+    # TODO: get intersection point
     if isIntersection:
+        print(" is intersection")
         return intersectPoint
     else:
         return None
@@ -144,7 +148,7 @@ def Raytrace(ray, sphereObjectList, lightObjectList, background):
     c = np.array([0, 0, 0]) # color vector
 
     if ray.Depth() > MAX_DEPTH:
-        print(f"{ray.GetDepth()} > {MAX_DEPTH}")
+        print(f"{ray.Depth()} > {MAX_DEPTH}")
         return c
     
     # intersection of ray with object
@@ -155,6 +159,10 @@ def Raytrace(ray, sphereObjectList, lightObjectList, background):
         # set background color
         for i in range( len(c) ):
             c[i] = background[i]
+        return c
+    else:
+        # there is an intersection
+        print(" i")
         return c
 
     # TODO: pass c into ADS() somehow

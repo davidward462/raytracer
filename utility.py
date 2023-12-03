@@ -125,7 +125,7 @@ def Raytrace(ray, sphereObjectList, lightObjectList, background):
 
     c = np.array([0, 0, 0]) # color vector
 
-    if ray.GetDepth() > MAX_DEPTH:
+    if ray.Depth() > MAX_DEPTH:
         print(f"{ray.GetDepth()} > {MAX_DEPTH}")
         return c
     

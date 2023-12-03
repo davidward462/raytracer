@@ -44,7 +44,7 @@ class Sphere:
             self.ks = float(self.attributeList[13])
             self.kr = float(self.attributeList[14])
             self.normal = float(self.attributeList[15])
-            self.unitNormal = normal # TODO: determine this
+            self.unitNormal = self.normal # TODO: determine this
             return 0 # success
         except Exception as e:
             print(f" An error occured: {e}")

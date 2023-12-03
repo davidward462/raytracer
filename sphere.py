@@ -19,7 +19,8 @@ class Sphere:
         self.kd = 0
         self.ks = 0
         self.kr = 0
-        self.n = 0
+        self.normal = 0
+        self.unitNormal = 0
 
         self.attributeCount = 15
         
@@ -42,7 +43,8 @@ class Sphere:
             self.kd = float(self.attributeList[12])
             self.ks = float(self.attributeList[13])
             self.kr = float(self.attributeList[14])
-            self.n = float(self.attributeList[15])
+            self.normal = float(self.attributeList[15])
+            self.unitNormal = normal # TODO: determine this
             return 0 # success
         except Exception as e:
             print(f" An error occured: {e}")
@@ -56,4 +58,4 @@ class Sphere:
         return f"\n name: {self.name}\nx: {self.posX}\ny: {self.posY}\nz: {self.posZ}"
 
     def __str__(self):
-        return f" \n{self.name} {self.posX} {self.posY} {self.posZ} {self.scaleX} {self.scaleY} {self.scaleZ} {self.r} {self.g} {self.b} {self.ka} {self.kd} {self.ks} {self.kr} {self.n}"
+        return f" \n{self.name} {self.posX} {self.posY} {self.posZ} {self.scaleX} {self.scaleY} {self.scaleZ} {self.r} {self.g} {self.b} {self.ka} {self.kd} {self.ks} {self.kr} {self.normal}"

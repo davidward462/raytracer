@@ -48,6 +48,9 @@ def IsVerboseOutput(numberOfArgs, fileArgs):
             return True
     return False
 
+def Magnitude(v):
+    return np.linalg.norm(v)
+
 # Normalize a vector, which is a numpy array
 def Normalize(v):
     norm = np.linalg.norm(v)
@@ -114,12 +117,11 @@ def Intersection(ray, sphereObjectList):
 
         rayDir = ray.Direction()
         rayOrigin = ray.Origin()
-        a = Normalize( np.square(rayDir) )
+        a = Magnitude( np.square(rayDir) )
         b = Dot(rayOrigin, rayDir)
-        c = np.square( rayOrigin )
+        c = Magnitude( np.square( rayOrigin ) )
 
         x = np.square(b) - (a * c) # for determining number of solutions
-        print(x)
         if x > 0:
             solutionCount = 2
         elif x < 0:

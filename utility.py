@@ -110,7 +110,22 @@ def Intersection(ray, sphereObjectList):
 
     # Check for each sphere
     for sphere in sphereObjectList:
-        x = 0
+        solutionCount = 0
+
+        rayDir = ray.Direction()
+        rayOrigin = ray.Origin()
+        a = Normalize( np.square(rayDir) )
+        b = Dot(rayOrigin, rayDir)
+        c = np.square( rayOrigin )
+
+        x = np.square(b) - (a * c) # for determining number of solutions
+        print(x)
+        if x > 0:
+            solutionCount = 2
+        elif x < 0:
+            solutionCount = 0
+        else: # x == 0
+            solutionCount = 1
 
     if isIntersection:
         return intersectPoint

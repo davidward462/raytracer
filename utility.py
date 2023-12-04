@@ -117,17 +117,23 @@ def Intersection(ray, sphereObjectList):
 
         rayDir = ray.Direction()
         rayOrigin = ray.Origin()
-        a = Magnitude( np.square(rayDir) )
+        a = np.square( Magnitude(rayDir) )
         b = Dot(rayOrigin, rayDir)
-        c = Magnitude( np.square( rayOrigin ) )
+        c = np.square( Magnitude( rayOrigin ) )
 
-        det = np.square(b) - (a * c) # for determining number of solutions
+        bsqu = np.square(b)
+        ac = a * c
+        det = bsqu - ac # for determining number of solutions
+
         if det > 0:
+            print("two solutions")
             solutionCount = 2
             isIntersection = True
         elif det < 0:
+            #   print(f"b = {b}, ac = {ac}")
             solutionCount = 0
         else: # x == 0
+            print("one solution")
             solutionCount = 1
             isIntersection = True
 

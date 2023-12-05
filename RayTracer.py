@@ -21,8 +21,8 @@ def main():
 
     # reduse resolution when debugging/testing
     if debug:
-        width = 200
-        height = 200
+        width = 100
+        height = 100
 
     # get all system arguments, including source file name 
     fileArgs = sys.argv   

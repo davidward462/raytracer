@@ -96,11 +96,9 @@ def ADS(ka, kd, ks, pos, Lpos, N):
 
     return result
 
-# DRAFT
 # Check if ray intersects with objects in the scene
 # If there is an intersection, return the coordinates
-# If there is no intersection, maybe return None?
-# TODO: determine exactly how this function will work
+# If there is no intersection, maybe return None
 def Intersection(ray, sphereObjectList):
     isIntersection = False
     intersectPoint = np.array([0, 0, 0])
@@ -126,34 +124,70 @@ def Intersection(ray, sphereObjectList):
         invertScale = matrix.InvertMatrix(scaleMatrix)
 
         # Transform ray
-        rayTransformed = ray
-        
-
         rayDir = ray.Direction()
         rayOrigin = ray.Origin()
-        a = np.square( Magnitude(rayDir) )
-        b = Dot(rayOrigin, rayDir)
-        c = np.square( Magnitude( rayOrigin ) )
 
+        transformedRay = ray
+        
+        # make origin vector length 4 to do dot product
+        tempOrigin = np.array([rayOrigin[0], rayOrigin[1], rayOrigin[2], 1])
+        transformedPosition = Dot(tempOrigin, invertTranslate)
+
+        # make scale vector lenght 4 to do dot product
+        tempScale = np.array([rayDir[0], rayDir[1], rayDir[2], 0])
+        transformedScale = Dot(tempScale, invertScale)
+
+        # Now we have the transformed ray
+        transformedRay.SetOrigin(transformedPosition)
+        transformedRay.SetDirection(transformedScale)
+
+        tRayDir = transformedRay.Direction()
+        tRayDirV3 = np.array([tRayDir[0], tRayDir[1], tRayDir[2]])
+
+        tRayOrigin = transformedRay.Origin()
+        tRayOriginV3 = np.array([tRayOrigin[0], tRayOrigin[1], tRayOrigin[2]])
+
+        '''
+        a = np.square( Magnitude(tRayDirV3) )
+        b = Dot(tRayOriginV3, tRayDirV3)
+        c = np.square( Magnitude( tRayOriginV3 ) )
+        '''
+
+        # Calculate coefficients of the quadratic equation
+        a = np.square(Magnitude(tRayDirV3))
+        b = Dot(tRayOriginV3, tRayDirV3)
+        c = np.square( Magnitude(tRayOriginV3) )
+
+        #print(f"a: {a}, b: {b}, c: {c}")
+
+        # Calculate the discriminant
+        #discriminant = b ** 2 - 4 * a * c
+
+        #print(f"Discriminant: {discriminant}")
+
+        
         bsqu = np.square(b)
         ac = a * c
-        det = bsqu - ac # for determining number of solutions
+        discriminant = bsqu - ac # for determining number of solutions
+        
 
-        if det > 0:
+        if discriminant > 0:
             print("two solutions")
             solutionCount = 2
             isIntersection = True
-        elif det < 0:
+            break
+        elif discriminant < 0:
             #   print(f"b = {b}, ac = {ac}")
+            print("no solutions")
             solutionCount = 0
         else: # x == 0
             print("one solution")
             solutionCount = 1
             isIntersection = True
+            break
 
     # TODO: get intersection point
     if isIntersection:
-        print(" is intersection")
         return intersectPoint
     else:
         return None
@@ -175,14 +209,14 @@ def Raytrace(ray, sphereObjectList, lightObjectList, background):
     #intersectPoint = np.array([0, 0, 0])
     intersectPoint = Intersection(ray, sphereObjectList)
 
-    if intersectPoint == None:
+    if intersectPoint is None:
         # set background color
         for i in range( len(c) ):
             c[i] = background[i]
         return c
     else:
         # there is an intersection
-        print(" i")
+        print("intersection")
         return c
 
     # TODO: pass c into ADS() somehow

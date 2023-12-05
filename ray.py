@@ -13,8 +13,14 @@ class Ray:
     def Origin(self):
         return self.origin
 
+    def SetOrigin(self, origin):
+        self.origin = origin
+
     def Direction(self):
         return self.direction
+
+    def SetDirection(self, direction):
+        self.direction = direction
 
     def __str__(self):
         return f" origin: {self.origin}\ndepth: {self.depth}\ndirection: {self.direction}"

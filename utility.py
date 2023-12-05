@@ -172,16 +172,16 @@ def Intersection(ray, sphereObjectList):
         
 
         if discriminant > 0:
-            print("two solutions")
+            #print("two solutions")
             solutionCount = 2
             isIntersection = True
             break
         elif discriminant < 0:
             #   print(f"b = {b}, ac = {ac}")
-            print("no solutions")
+            #print("no solutions")
             solutionCount = 0
         else: # x == 0
-            print("one solution")
+            #print("one solution")
             solutionCount = 1
             isIntersection = True
             break

@@ -125,7 +125,9 @@ def Intersection(ray, sphereObjectList):
         invertTranslate = matrix.InvertMatrix(translateMatrix)
         invertScale = matrix.InvertMatrix(scaleMatrix)
 
-        invertScale = 0
+        # Transform ray
+        rayTransformed = ray
+        
 
         rayDir = ray.Direction()
         rayOrigin = ray.Origin()

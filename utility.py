@@ -2,6 +2,7 @@ import sys
 import re
 import numpy as np
 import color
+import matrix
 
 MAX_DEPTH = 3 # TODO: determine actual value
 
@@ -107,6 +108,24 @@ def Intersection(ray, sphereObjectList):
     # Check for each sphere
     for sphere in sphereObjectList:
         solutionCount = 0
+
+        # Get sphere transformations
+
+        translateMatrix = np.array([[1, 0, 0, sphere.posX],
+                                    [0, 1, 0, sphere.posY],
+                                    [0, 0, 1, sphere.posZ],
+                                    [0, 0, 0, 1]])
+
+        scaleMatrix = np.array([[sphere.scaleX, 0, 0, 0],
+                                [0, sphere.scaleY, 0, 0],
+                                [0, 0, sphere.scaleZ, 0],
+                                [0, 0, 0, 1]])
+
+        # Get inverted matrices
+        invertTranslate = matrix.InvertMatrix(translateMatrix)
+        invertScale = matrix.InvertMatrix(scaleMatrix)
+
+        invertScale = 0
 
         rayDir = ray.Direction()
         rayOrigin = ray.Origin()

@@ -41,13 +41,6 @@ def CheckArgs(numberOfArgs, filename):
         print(f" Usage: {filename} <inputFile>")
         sys.exit()
 
-def IsVerboseOutput(numberOfArgs, fileArgs):
-    if numberOfArgs == 3:
-        flag = fileArgs[2]
-        if flag == "-v":
-            return True
-    return False
-
 def Magnitude(v):
     return np.linalg.norm(v)
 

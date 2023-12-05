@@ -12,7 +12,7 @@ import ray
 def main():
 
     # program variables
-    debug = True
+    debug = False
     parseSuccess = True
     divLength = 20
     width = 400

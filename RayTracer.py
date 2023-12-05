@@ -14,7 +14,6 @@ def main():
     # program variables
     debug = True
     parseSuccess = True
-    verboseOutput = False
     divLength = 20
     width = 400
     height = 400
@@ -49,9 +48,6 @@ def main():
 
     # Check number of arguments
     utility.CheckArgs(numberOfArgs, selfFilename)
-
-    # check for verbose flag
-    verboseOutput = utility.IsVerboseOutput(numberOfArgs, fileArgs)
 
     # open file
     filePath = fileArgs[1]
@@ -145,18 +141,7 @@ def main():
             print(f" Data in file '{filePath}' processed sucessfully.")
         else:
             print(f" Failure processing data in '{filePath}'")
-            sys.exit() 
-
-    # output data collected from file
-    if verboseOutput:
-        utility.PrintDivider(divLength)
-        print(f" near: {near}\n left: {left}\n right: {right}\n bottom: {bottom}\n top: {top}\n res: {res}\n back: {back}\n ambient: {ambient}\n output: {output}")
-
-        print(f" spheres: {sphereCount}")
-        utility.PrintList(sphereObjectList)
-        print(f" lights: {lightCount}")
-        utility.PrintList(lightObjectList)
-        utility.PrintDivider(divLength)
+            sys.exit()
 
    # do raytracing
     if debug:
